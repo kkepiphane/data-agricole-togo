@@ -15,3 +15,6 @@ data/raw/*.xlsx
 data/raw/*.json
 data/raw/*.zip
 data/raw/limites_admin/*.zip
+
+# Archive de remise
+dist/

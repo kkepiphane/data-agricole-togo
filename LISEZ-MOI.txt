@@ -1,0 +1,26 @@
+ATLAS DU TISSU PRODUCTIF AGRICOLE DU TOGO
+==========================================
+
+DEMARRER EN UN CLIC
+-------------------
+Prerequis : Python 3.10 ou plus recent (https://www.python.org/downloads/)
+            et une connexion Internet au premier lancement.
+
+  Windows : double-cliquer sur  demarrer.bat
+  macOS   : double-cliquer sur  demarrer.command
+            (la premiere fois : clic droit > Ouvrir)
+  Linux   : double-cliquer sur  demarrer.sh  > Executer
+            ou, dans un terminal :  sh demarrer.sh
+
+Le premier lancement installe les bibliotheques (2 a 5 minutes), puis le
+navigateur s'ouvre sur le tableau de bord. Les lancements suivants prennent
+quelques secondes. Pour arreter : fermer la fenetre du terminal.
+
+Si le double-clic ne fait rien, ouvrir un terminal dans ce dossier et taper :
+  python lancer.py        (python3 lancer.py sous Linux et macOS)
+
+DOCUMENTS
+---------
+  README.md    installation detaillee, utilisation, deploiement, depannage
+  rapport.md   rapport methodologique : sources, methode, resultats, limites
+  outputs/     captures d'ecran des vues principales

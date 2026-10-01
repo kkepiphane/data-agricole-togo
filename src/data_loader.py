@@ -12,7 +12,7 @@ import geopandas as gpd
 import pandas as pd
 
 from . import geo
-from .cleaning import clean_place, clean_text, parse_days, parse_set, parse_year
+from .cleaning import clean_place, clean_text, norm_key, parse_days, parse_set, parse_year
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "data" / "raw"
@@ -63,7 +63,8 @@ class Data:
 
 
 def find_raw(pattern: str) -> Path | None:
-    matches = sorted(p for p in RAW_DIR.glob("*.csv") if pattern.lower() in p.name.lower())
+    # Comparaison sans accents ni casse : les noms accentués varient selon le système (NFC/NFD).
+    matches = sorted(p for p in RAW_DIR.glob("*.csv") if norm_key(pattern) in norm_key(p.name))
     return matches[0] if matches else None
 
 

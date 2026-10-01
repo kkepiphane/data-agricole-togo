@@ -23,6 +23,26 @@ données ni compte à créer.
 
 ## 1. Démarrage rapide
 
+### En un clic
+
+Seul prérequis : **Python 3.10 ou plus récent** (<https://www.python.org/downloads/>) et une connexion
+Internet au premier lancement.
+
+| Système | Action |
+|---|---|
+| **Windows** | Double-cliquer sur `demarrer.bat` |
+| **macOS** | Double-cliquer sur `demarrer.command` (la première fois : clic droit → **Ouvrir**) |
+| **Linux** | Double-cliquer sur `demarrer.sh` → **Exécuter**, ou dans un terminal : `sh demarrer.sh` |
+
+Le lanceur crée l'environnement Python, installe les bibliothèques (2 à 5 minutes la première fois,
+quelques secondes ensuite), démarre l'atlas et ouvre le navigateur. Si le port 8050 est occupé, il
+prend le suivant et affiche l'adresse. Pour arrêter : fermer la fenêtre du terminal.
+
+Si le double-clic ne fait rien, ouvrir un terminal dans le dossier et taper `python lancer.py`
+(`python3 lancer.py` sous Linux et macOS).
+
+### À la main
+
 Pour qui a déjà Python 3.10+ et Git :
 
 ```bash
@@ -123,12 +143,14 @@ dossier est vide, il est reconstruit automatiquement depuis `data/raw/` (environ
 
 | Commande                       | Effet                                                           |
 | ------------------------------ | --------------------------------------------------------------- |
+| `python lancer.py` | Tout-en-un : environnement, installation, démarrage, ouverture du navigateur |
 | `python app.py`                | Lance l'application sur le port 8050                            |
 | `python app.py --port 8060`    | Utilise un autre port                                           |
 | `python app.py --host 0.0.0.0` | Rend l'application accessible aux autres postes du réseau local |
 | `python app.py --rebuild`      | Reconstruit les données traitées avant de démarrer              |
 | `python app.py --debug`        | Mode développement (rechargement automatique du code)           |
 | `python -m src.data_loader`    | Reconstruit les données sans lancer l'application               |
+| `python outils/creer_zip.py` | Crée l'archive de remise `dist/atlas-agricole-togo.zip` |
 
 L'application fonctionne **hors ligne**. Seule l'option « Fond de carte (en ligne) » de la vue
 Territoire demande une connexion Internet.
@@ -305,6 +327,9 @@ powershell -ExecutionPolicy Bypass -File outputs\capture.ps1
 
 | Symptôme                                        | Cause probable                                     | Solution                                                                                                 |
 | ----------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| macOS : « demarrer.command ne peut pas être ouvert » | Fichier téléchargé non signé | Clic droit → **Ouvrir**, puis confirmer |
+| macOS / Linux : « permission denied » sur le lanceur | Droit d'exécution perdu à la décompression | `chmod +x demarrer.command demarrer.sh`, ou `python3 lancer.py` |
+| Linux : « impossible de créer l'environnement virtuel » | Module venv absent | `sudo apt install python3-venv` |
 | `python` n'est pas reconnu                      | Python absent du PATH                              | Réinstaller en cochant « Add python.exe to PATH », ou utiliser `py` (Windows) / `python3` (Linux, macOS) |
 | `Activate.ps1 cannot be loaded` (PowerShell)    | Exécution de scripts bloquée                       | `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, puis réessayer                                    |
 | `ModuleNotFoundError: No module named 'dash'`   | Environnement virtuel non activé                   | Activer `.venv` (section 2.3) puis `pip install -r requirements.txt`                                     |
@@ -319,6 +344,11 @@ powershell -ExecutionPolicy Bypass -File outputs\capture.ps1
 ## 9. Structure du projet
 
 ```
+LISEZ-MOI.txt           démarrage en un clic, en bref
+demarrer.bat            lanceur Windows (double-clic)
+demarrer.command        lanceur macOS (double-clic)
+demarrer.sh             lanceur Linux
+lancer.py               logique commune des lanceurs
 app.py                  point d'entrée (python app.py)
 wsgi.py                 point d'entrée pour un serveur de production
 requirements.txt        dépendances
@@ -336,6 +366,7 @@ data/raw/               exports CSV du portail et limites administratives
 data/processed/         jeu nettoyé, référentiels, contrôles qualité, dictionnaire de données
 outputs/                captures d'écran des vues
 tests/smoke_test.py     test de bon fonctionnement
+outils/creer_zip.py     création de l'archive de remise
 rapport.md              rapport méthodologique
 ```
 
