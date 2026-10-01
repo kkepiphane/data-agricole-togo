@@ -40,12 +40,12 @@ Ouvrir ensuite <http://127.0.0.1:8050> dans un navigateur.
 
 ### 2.1 Prérequis
 
-| Élément | Version | Vérifier |
-|---|---|---|
-| Python | 3.10, 3.11 ou 3.12 | `python --version` |
-| pip | fourni avec Python | `pip --version` |
-| Git (facultatif) | toute version récente | `git --version` |
-| Navigateur | Chrome, Edge ou Firefox récent | — |
+| Élément          | Version                        | Vérifier           |
+| ---------------- | ------------------------------ | ------------------ |
+| Python           | 3.10, 3.11 ou 3.12             | `python --version` |
+| pip              | fourni avec Python             | `pip --version`    |
+| Git (facultatif) | toute version récente          | `git --version`    |
+| Navigateur       | Chrome, Edge ou Firefox récent | —                  |
 
 Environ 600 Mo d'espace disque (bibliothèques comprises) et 1 Go de mémoire vive suffisent.
 
@@ -64,8 +64,8 @@ dans tout ce qui suit.
 Avec Git :
 
 ```bash
-git clone <URL-du-dépôt> atlas-agricole-togo
-cd atlas-agricole-togo
+https://github.com/kkepiphane/data-agricole-togo.git
+cd data-agricole-togo
 ```
 
 Sans Git : sur la page GitHub du dépôt, bouton **Code → Download ZIP**, décompresser l'archive, puis
@@ -121,14 +121,14 @@ navigateur. Pour arrêter : `Ctrl + C` dans le terminal.
 Les données nettoyées sont livrées dans `data/processed/` : le premier démarrage est immédiat. Si ce
 dossier est vide, il est reconstruit automatiquement depuis `data/raw/` (environ 20 secondes).
 
-| Commande | Effet |
-|---|---|
-| `python app.py` | Lance l'application sur le port 8050 |
-| `python app.py --port 8060` | Utilise un autre port |
+| Commande                       | Effet                                                           |
+| ------------------------------ | --------------------------------------------------------------- |
+| `python app.py`                | Lance l'application sur le port 8050                            |
+| `python app.py --port 8060`    | Utilise un autre port                                           |
 | `python app.py --host 0.0.0.0` | Rend l'application accessible aux autres postes du réseau local |
-| `python app.py --rebuild` | Reconstruit les données traitées avant de démarrer |
-| `python app.py --debug` | Mode développement (rechargement automatique du code) |
-| `python -m src.data_loader` | Reconstruit les données sans lancer l'application |
+| `python app.py --rebuild`      | Reconstruit les données traitées avant de démarrer              |
+| `python app.py --debug`        | Mode développement (rechargement automatique du code)           |
+| `python -m src.data_loader`    | Reconstruit les données sans lancer l'application               |
 
 L'application fonctionne **hors ligne**. Seule l'option « Fond de carte (en ligne) » de la vue
 Territoire demande une connexion Internet.
@@ -137,13 +137,13 @@ Territoire demande une connexion Internet.
 
 **Cinq vues**, accessibles par les onglets :
 
-| Vue | Contenu |
-|---|---|
-| Territoire | Carte par région ou préfecture, sélecteur de couche, classement |
-| Production | Répartition par type d'exploitation, classement, années de création |
-| Équipements | Carte des services, couverture territoriale, matrice canton × équipement |
+| Vue                          | Contenu                                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------------------- |
+| Territoire                   | Carte par région ou préfecture, sélecteur de couche, classement                             |
+| Production                   | Répartition par type d'exploitation, classement, années de création                         |
+| Équipements                  | Carte des services, couverture territoriale, matrice canton × équipement                    |
 | Coopératives & exploitations | Typologie en quatre quadrants, nuage de points, corrélation de Spearman, zones prioritaires |
-| Qualité des données | Complétude, contrôles, sources, avertissements |
+| Qualité des données          | Complétude, contrôles, sources, avertissements                                              |
 
 **Filtres** (barre du haut) : région, préfecture, canton, type d'exploitation, type d'infrastructure,
 année de création. Ils s'appliquent à toutes les vues et aux cinq indicateurs du bandeau.
@@ -179,16 +179,16 @@ Les CSV utilisent le séparateur `;` et l'encodage UTF-8 : ils s'ouvrent directe
 2. Placer les fichiers dans `data/raw/` à la place des anciens. Le nom de chaque fichier doit contenir
    l'un de ces mots, sans tenir compte des majuscules :
 
-   | Jeu | Mot attendu dans le nom du fichier | Obligatoire |
-   |---|---|---|
-   | Grandes exploitations | `Grandes exploitations` | oui |
-   | Petites exploitations | `Petites exploitations` | oui |
-   | Plantations | `Plantations` | oui |
-   | ZAAP / ZAPB | `ZAAP` | oui |
-   | Coopératives | `Coopératives` | oui |
-   | Marchés | `Marchés` | oui |
-   | Pépinières | `Pépinières` | oui |
-   | Magasins d'intrants | `intrant` | non |
+   | Jeu                   | Mot attendu dans le nom du fichier | Obligatoire |
+   | --------------------- | ---------------------------------- | ----------- |
+   | Grandes exploitations | `Grandes exploitations`            | oui         |
+   | Petites exploitations | `Petites exploitations`            | oui         |
+   | Plantations           | `Plantations`                      | oui         |
+   | ZAAP / ZAPB           | `ZAAP`                             | oui         |
+   | Coopératives          | `Coopératives`                     | oui         |
+   | Marchés               | `Marchés`                          | oui         |
+   | Pépinières            | `Pépinières`                       | oui         |
+   | Magasins d'intrants   | `intrant`                          | non         |
 
 3. Reconstruire puis relancer :
 
@@ -253,11 +253,11 @@ Placer ensuite Nginx ou Apache devant le port 8050 pour le nom de domaine et le 
 
 ### 6.3 Sur une plateforme d'hébergement (Render, Railway, etc.)
 
-| Paramètre | Valeur |
-|---|---|
-| Commande d'installation | `pip install -r requirements.txt gunicorn` |
-| Commande de démarrage | `gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 wsgi:server` |
-| Version de Python | 3.11 |
+| Paramètre               | Valeur                                                                |
+| ----------------------- | --------------------------------------------------------------------- |
+| Commande d'installation | `pip install -r requirements.txt gunicorn`                            |
+| Commande de démarrage   | `gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 wsgi:server` |
+| Version de Python       | 3.11                                                                  |
 
 ### 6.4 Avec Docker
 
@@ -303,18 +303,18 @@ powershell -ExecutionPolicy Bypass -File outputs\capture.ps1
 
 ## 8. Dépannage
 
-| Symptôme | Cause probable | Solution |
-|---|---|---|
-| `python` n'est pas reconnu | Python absent du PATH | Réinstaller en cochant « Add python.exe to PATH », ou utiliser `py` (Windows) / `python3` (Linux, macOS) |
-| `Activate.ps1 cannot be loaded` (PowerShell) | Exécution de scripts bloquée | `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, puis réessayer |
-| `ModuleNotFoundError: No module named 'dash'` | Environnement virtuel non activé | Activer `.venv` (section 2.3) puis `pip install -r requirements.txt` |
-| `Address already in use` / port occupé | Une autre application utilise le port 8050 | `python app.py --port 8060` |
-| `Fichier brut introuvable pour « … »` | Un CSV manque dans `data/raw/` ou son nom a changé | Voir le tableau de la section 5 |
-| `Limites administratives introuvables` | `data/raw/limites_admin/tgo_admin2.geojson` absent | Le télécharger depuis HDX (section 5) |
-| Carte blanche avec « Fond de carte (en ligne) » | Pas de connexion Internet | Décocher l'option : la carte fonctionne hors ligne |
-| Carte vide dans un vieux navigateur | WebGL désactivé | Utiliser un navigateur récent ou activer l'accélération matérielle |
-| Accents illisibles dans Excel | Fichier ouvert avec un mauvais encodage | Les exports sont en UTF-8 avec signature : les ouvrir par double-clic, pas par import manuel |
-| Page inaccessible depuis un autre poste | Application liée à 127.0.0.1 ou pare-feu | Lancer avec `--host 0.0.0.0` et ouvrir le port |
+| Symptôme                                        | Cause probable                                     | Solution                                                                                                 |
+| ----------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `python` n'est pas reconnu                      | Python absent du PATH                              | Réinstaller en cochant « Add python.exe to PATH », ou utiliser `py` (Windows) / `python3` (Linux, macOS) |
+| `Activate.ps1 cannot be loaded` (PowerShell)    | Exécution de scripts bloquée                       | `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, puis réessayer                                    |
+| `ModuleNotFoundError: No module named 'dash'`   | Environnement virtuel non activé                   | Activer `.venv` (section 2.3) puis `pip install -r requirements.txt`                                     |
+| `Address already in use` / port occupé          | Une autre application utilise le port 8050         | `python app.py --port 8060`                                                                              |
+| `Fichier brut introuvable pour « … »`           | Un CSV manque dans `data/raw/` ou son nom a changé | Voir le tableau de la section 5                                                                          |
+| `Limites administratives introuvables`          | `data/raw/limites_admin/tgo_admin2.geojson` absent | Le télécharger depuis HDX (section 5)                                                                    |
+| Carte blanche avec « Fond de carte (en ligne) » | Pas de connexion Internet                          | Décocher l'option : la carte fonctionne hors ligne                                                       |
+| Carte vide dans un vieux navigateur             | WebGL désactivé                                    | Utiliser un navigateur récent ou activer l'accélération matérielle                                       |
+| Accents illisibles dans Excel                   | Fichier ouvert avec un mauvais encodage            | Les exports sont en UTF-8 avec signature : les ouvrir par double-clic, pas par import manuel             |
+| Page inaccessible depuis un autre poste         | Application liée à 127.0.0.1 ou pare-feu           | Lancer avec `--host 0.0.0.0` et ouvrir le port                                                           |
 
 ## 9. Structure du projet
 
@@ -349,20 +349,20 @@ supprimer le fichier.
 
 ## 10. Données et sources
 
-| Fichier (`data/processed/`) | Contenu |
-|---|---|
-| `entites.csv` | 27 238 enregistrements nettoyés, toutes couches confondues |
-| `prefectures.csv`, `prefectures.geojson`, `regions.geojson` | 39 préfectures, 5 régions, superficies |
-| `cantons.csv` | 394 cantons présents dans les données |
-| `dictionnaire_donnees.csv` | Dictionnaire de données : variable, type, observée ou calculée, description |
-| `qualite_jeux.csv`, `qualite_completude.csv`, `exclusions.csv` | Contrôles qualité et enregistrements exclus |
-| `indicateurs_nationaux.csv` | Indicateurs Banque mondiale (contexte national, non cartographiés) |
+| Fichier (`data/processed/`)                                    | Contenu                                                                     |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `entites.csv`                                                  | 27 238 enregistrements nettoyés, toutes couches confondues                  |
+| `prefectures.csv`, `prefectures.geojson`, `regions.geojson`    | 39 préfectures, 5 régions, superficies                                      |
+| `cantons.csv`                                                  | 394 cantons présents dans les données                                       |
+| `dictionnaire_donnees.csv`                                     | Dictionnaire de données : variable, type, observée ou calculée, description |
+| `qualite_jeux.csv`, `qualite_completude.csv`, `exclusions.csv` | Contrôles qualité et enregistrements exclus                                 |
+| `indicateurs_nationaux.csv`                                    | Indicateurs Banque mondiale (contexte national, non cartographiés)          |
 
-| Source | Contenu | Licence |
-|---|---|---|
-| Portail de données ouvertes agricoles du Togo | 8 jeux géolocalisés, export du 1er octobre 2026 | données publiques ouvertes |
-| OCHA COD-AB Togo v02, via HDX | Limites et superficies des régions et préfectures (2021) | CC BY-IGO |
-| Banque mondiale, via HDX | Indicateurs nationaux 1960–2023 | CC BY 4.0 |
-| Wikimedia Commons, « Coat of arms of Togo.svg » | Armoiries du Togo (`assets/logo.svg`) | CC BY-SA 4.0 |
+| Source                                          | Contenu                                                  | Licence                    |
+| ----------------------------------------------- | -------------------------------------------------------- | -------------------------- |
+| Portail de données ouvertes agricoles du Togo   | 8 jeux géolocalisés, export du 1er octobre 2026          | données publiques ouvertes |
+| OCHA COD-AB Togo v02, via HDX                   | Limites et superficies des régions et préfectures (2021) | CC BY-IGO                  |
+| Banque mondiale, via HDX                        | Indicateurs nationaux 1960–2023                          | CC BY 4.0                  |
+| Wikimedia Commons, « Coat of arms of Togo.svg » | Armoiries du Togo (`assets/logo.svg`)                    | CC BY-SA 4.0               |
 
 Méthode, indicateurs, résultats et limites : voir [rapport.md](rapport.md).
