@@ -1,0 +1,17 @@
+# Environnements et caches Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Outils locaux
+.claude/
+.vscode/
+.idea/
+
+# Exports bruts redondants : seuls les CSV sont lus par l'application
+data/raw/*.kml
+data/raw/*.xlsx
+data/raw/*.json
+data/raw/*.zip
+data/raw/limites_admin/*.zip

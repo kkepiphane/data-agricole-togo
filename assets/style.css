@@ -1,0 +1,182 @@
+/* Atlas du tissu productif agricole du Togo — charte noir et blanc.
+   Deux accents : vert pour la sélection, orange pour les alertes. */
+:root {
+  --ink: #111111;
+  --ink-2: #525252;
+  --muted: #8c8c8c;
+  --line: #e4e4e2;
+  --surface: #ffffff;
+  --bg: #f5f5f3;
+  --accent: #d9480f;
+  --select: #1e8e4e;
+  --select-soft: #e7f4ec;
+  --fill: #2f9e62;
+  --fill-strong: #176b3c;
+  --fill-mid: #a4a6a9;
+  --radius: 10px;
+  --font: Inter, "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Composants Dash (listes, curseur) ramenés à la charte neutre. */
+:root:root {
+  --Dash-Fill-Interactive-Strong: #55585c;
+  --Dash-Fill-Interactive-Weak: #f5f5f3;
+  --Dash-Stroke-Strong: #bdbdbb;
+  --Dash-Stroke-Weak: #e4e4e2;
+  --Dash-Text-Primary: #111111;
+  --Dash-Text-Strong: #111111;
+  --Dash-Text-Weak: #525252;
+  --Dash-Text-Disabled: #8c8c8c;
+  --Dash-Fill-Primary-Hover: #f5f5f3;
+  --Dash-Fill-Primary-Active: #ededeb;
+  --Dash-Fill-Disabled: #ededeb;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 14px;
+  -webkit-font-smoothing: antialiased; }
+.app { max-width: 1680px; margin: 0 auto; padding: 20px 28px 28px; }
+
+/* ── En-tête ── */
+.header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  padding-bottom: 16px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.logo { height: 52px; width: auto; display: block; }
+.header h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.meta { margin: 4px 0 0; color: var(--ink-2); font-size: 12.5px; }
+#scope-label { color: var(--ink); font-weight: 600; }
+#scope-label.filtered { color: var(--select); }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 14px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: border-color .15s, background .15s; }
+.btn:hover { border-color: var(--ink); }
+.btn-primary { border-color: var(--fill-mid); }
+.btn-primary:hover { border-color: var(--ink); }
+.btn-sm { padding: 5px 10px; font-size: 12px; }
+
+/* ── Filtres ── */
+.filters { position: sticky; top: 0; z-index: 50; display: grid; gap: 12px 14px;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(0, 1.25fr);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px 14px; }
+.filter label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--muted); margin-bottom: 5px; }
+.filter-year { padding: 0 6px; }
+.filter-year label { margin-left: -6px; }
+
+/* Un filtre actif se signale par un liseré vert. */
+.filter.active label { color: var(--select); }
+.filter.active > div:last-child { box-shadow: 0 0 0 1.5px var(--select); border-radius: 6px; }
+.filter-year.active > div:last-child { box-shadow: none; }
+.filter.active { --Dash-Fill-Interactive-Strong: var(--select); }
+
+/* ── KPI ── */
+.kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin: 14px 0; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px 15px; min-width: 0; }
+.kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.kpi-value { font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-top: 6px;
+  font-variant-numeric: tabular-nums; white-space: nowrap; }
+.kpi-value.na { font-size: 17px; font-weight: 600; letter-spacing: 0; color: var(--muted); line-height: 34.5px; }
+.kpi-of { font-size: 17px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.kpi-sub { font-size: 12px; color: var(--ink-2); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ── Onglets ── */
+.tabs-wrap { margin-bottom: 14px; }
+.tabs { display: flex !important; gap: 4px; border-bottom: 1px solid var(--line) !important; }
+.tabs .tab { flex: 0 0 auto !important; width: auto !important; border: 0 !important; background: transparent !important;
+  padding: 10px 14px !important; font-size: 13.5px; font-weight: 600; color: var(--ink-2) !important; cursor: pointer;
+  border-bottom: 2px solid transparent !important; margin-bottom: -1px; }
+.tabs .tab:hover { color: var(--ink) !important; }
+.tabs .tab.tab-on { color: var(--ink) !important; border-bottom-color: var(--select) !important; }
+
+/* ── Grille et cartes ── */
+.grid { display: grid; gap: 14px; align-items: start; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.stack { display: grid; gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px 14px; min-width: 0; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.card h2 { margin: 0; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+.card h3 { margin: 16px 0 6px; font-size: 12.5px; font-weight: 700; }
+.card-sub { margin: 3px 0 0; font-size: 12px; color: var(--ink-2); }
+.note { margin: 8px 0 0; font-size: 11.5px; line-height: 1.45; color: var(--muted); }
+.note:empty { display: none; }
+.scroll-y { max-height: 460px; overflow-y: auto; }
+.scroll-y.tall { max-height: 640px; }
+
+/* ── Barres d'outils et contrôles segmentés ── */
+.toolbar { display: grid; gap: 8px; margin-bottom: 10px; }
+.toolbar-row { display: flex; gap: 10px 14px; align-items: center; flex-wrap: wrap; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: 2px; border-radius: 8px; padding: 3px; background: #ececea; }
+.seg label { display: inline-flex !important; align-items: center; margin: 0 !important; padding: 5px 11px !important; border-radius: 6px;
+  font-size: 12.5px; font-weight: 600; color: var(--ink-2); cursor: pointer; white-space: nowrap; gap: 0 !important; }
+.seg input { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; }
+.seg label { background: transparent !important; color: var(--ink-2) !important; }
+.seg label * { color: inherit !important; }
+.seg label:hover { color: var(--ink) !important; }
+.seg label:has(input:checked) { background: var(--surface) !important; color: var(--select) !important;
+  box-shadow: 0 0 0 1.5px var(--select), 0 1px 2px rgba(0, 0, 0, .08); }
+.checks { display: inline-flex; gap: 14px; font-size: 12.5px; color: var(--ink-2); }
+.checks label { display: inline-flex !important; align-items: center; gap: 6px; cursor: pointer; }
+.checks input { accent-color: var(--select); }
+
+/* ── Tableaux ── */
+.tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.tbl th { text-align: left; font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--muted);
+  padding: 7px 10px; border-bottom: 1px solid #cfcfcd; position: sticky; top: 0; background: var(--surface); z-index: 1; }
+.tbl td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.tbl tbody tr:hover td { background: #fafaf9; }
+.tbl .num { text-align: right; font-variant-numeric: tabular-nums; }
+.tbl code { font-size: 11.5px; color: var(--ink-2); }
+.tbl-compact td { padding: 5px 10px; }
+.strong { font-weight: 600; }
+.na { color: var(--muted); font-style: italic; }
+.dot { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; border-radius: 11px;
+  font-size: 11px; font-weight: 700; padding: 0 6px; }
+.dot.on { background: #ececea; color: var(--ink); }
+.dot.off { border: 1.5px solid #cfcfcd; min-width: 12px; width: 12px; height: 12px; padding: 0; margin-left: 5px; }
+.pill { display: inline-block; padding: 2px 9px; border-radius: 10px; font-size: 11px; font-weight: 600; border: 1px solid var(--line); white-space: nowrap; }
+.pill.lvl-0 { color: var(--accent); border-color: var(--accent); }
+.pill.lvl-2 { background: #ececea; color: var(--ink); border-color: #ececea; }
+.bar { width: 100%; min-width: 120px; height: 6px; border-radius: 3px; background: #ededeb; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--fill); border-radius: 3px; }
+.bar-fill.low { background: var(--accent); }
+
+/* ── Statistiques, légendes, priorités ── */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-bottom: 6px; }
+.stats-5 { margin-bottom: 16px; }
+.stat { border-left: 2px solid #cfcfcd; padding: 2px 0 2px 10px; min-width: 0; }
+.stat-value { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat-value.alert { color: var(--accent); }
+.stat-label { font-size: 11.5px; color: var(--ink-2); line-height: 1.3; }
+.legend { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin-top: 10px; font-size: 11.5px; color: var(--ink-2); }
+.legend-row { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.legend-row:empty { display: none; }
+.legend-row .swatch { border-radius: 50%; }
+.legend-item { display: flex; align-items: center; gap: 7px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; }
+.prio-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.prio h3 { margin-top: 0; }
+.criterion { margin: 0 0 8px; font-size: 11.5px; color: var(--muted); line-height: 1.4; min-height: 32px; }
+.conclusion p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; }
+.conclusion p:last-child { color: var(--ink-2); font-size: 12.5px; }
+.warn-list { margin: 0; padding-left: 16px; font-size: 12.5px; line-height: 1.5; color: var(--ink-2); }
+.warn-list li { margin-bottom: 8px; }
+.empty { padding: 28px 12px; text-align: center; color: var(--muted); font-size: 13px; }
+.empty.small { padding: 16px 8px; font-size: 12.5px; border: 1px dashed var(--line); border-radius: 8px; }
+.footer { margin-top: 18px; font-size: 11.5px; color: var(--muted); }
+
+/* ── Tablette ── */
+@media (max-width: 1180px) {
+  .app { padding: 14px 16px 22px; }
+  .filters { grid-template-columns: repeat(3, minmax(0, 1fr)); position: static; }
+  .kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .span-3, .grid-3 > .card:not(.span-2), .grid-3 > .stack { grid-column: span 2; }
+  .prio-grid { grid-template-columns: 1fr; }
+  .criterion { min-height: 0; }
+}
+@media (max-width: 720px) {
+  .filters, .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-value { font-size: 24px; }
+}

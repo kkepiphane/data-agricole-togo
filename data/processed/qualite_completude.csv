@@ -1,0 +1,75 @@
+﻿jeu,variable,renseignes,total,taux
+Grandes exploitations,region_nom_bdd,220,220,1.0
+Grandes exploitations,prefecture_nom_bdd,220,220,1.0
+Grandes exploitations,commune_nom_bdd,220,220,1.0
+Grandes exploitations,canton_nom_bdd,220,220,1.0
+Grandes exploitations,nom_localite,220,220,1.0
+Grandes exploitations,exploitation_nom,216,220,0.9818
+Grandes exploitations,exploitation_annee,204,220,0.9273
+Grandes exploitations,geometry,220,220,1.0
+Grandes exploitations,exploitation_annee (année plausible),203,220,0.9227
+Petites exploitations,region_nom_bdd,13119,13119,1.0
+Petites exploitations,prefecture_nom_bdd,13119,13119,1.0
+Petites exploitations,commune_nom_bdd,13119,13119,1.0
+Petites exploitations,canton_nom_bdd,13119,13119,1.0
+Petites exploitations,nom_localite,8826,13119,0.6728
+Petites exploitations,cooperative_type,12798,13119,0.9755
+Petites exploitations,cooperative_nom,12809,13119,0.9764
+Petites exploitations,geometry,13119,13119,1.0
+Plantations,region_nom_bdd,2911,2911,1.0
+Plantations,prefecture_nom_bdd,2911,2911,1.0
+Plantations,commune_nom_bdd,2911,2911,1.0
+Plantations,canton_nom_bdd,2911,2911,1.0
+Plantations,nom_localite,2910,2911,0.9997
+Plantations,exploitation_nom,2911,2911,1.0
+Plantations,exploitation_annee,2743,2911,0.9423
+Plantations,terrain,2869,2911,0.9856
+Plantations,geometry,2911,2911,1.0
+Plantations,exploitation_annee (année plausible),2732,2911,0.9385
+ZAAP / ZAPB (champs individuels),region_nom_bdd,1883,1883,1.0
+ZAAP / ZAPB (champs individuels),prefecture_nom_bdd,1883,1883,1.0
+ZAAP / ZAPB (champs individuels),commune_nom_bdd,1883,1883,1.0
+ZAAP / ZAPB (champs individuels),canton_nom_bdd,1883,1883,1.0
+ZAAP / ZAPB (champs individuels),nom_localite,192,1883,0.102
+ZAAP / ZAPB (champs individuels),cooperative_type,768,1883,0.4079
+ZAAP / ZAPB (champs individuels),cooperative_nom,745,1883,0.3956
+ZAAP / ZAPB (champs individuels),geometry,1883,1883,1.0
+Coopératives agricoles,region_nom_bdd,6859,6859,1.0
+Coopératives agricoles,prefecture_nom_bdd,6859,6859,1.0
+Coopératives agricoles,commune_nom_bdd,6859,6859,1.0
+Coopératives agricoles,canton_nom_bdd,6859,6859,1.0
+Coopératives agricoles,nom_localite,6810,6859,0.9929
+Coopératives agricoles,cooperative_nom,6859,6859,1.0
+Coopératives agricoles,cooperative_statut,6796,6859,0.9908
+Coopératives agricoles,cooperative_type,4014,6859,0.5852
+Coopératives agricoles,geometry,6859,6859,1.0
+Marchés,region_nom_bdd,1078,1078,1.0
+Marchés,prefecture_nom_bdd,1078,1078,1.0
+Marchés,commune_nom_bdd,1078,1078,1.0
+Marchés,canton_nom_bdd,1078,1078,1.0
+Marchés,nom_localite,1074,1078,0.9963
+Marchés,marche_nom,1076,1078,0.9981
+Marchés,jour,1059,1078,0.9824
+Marchés,organisme,1078,1078,1.0
+Marchés,geometry,1078,1078,1.0
+Pépinières agricoles,region_nom_bdd,728,728,1.0
+Pépinières agricoles,prefecture_nom_bdd,728,728,1.0
+Pépinières agricoles,commune_nom_bdd,728,728,1.0
+Pépinières agricoles,canton_nom_bdd,728,728,1.0
+Pépinières agricoles,nom_localite,727,728,0.9986
+Pépinières agricoles,etab_nom,728,728,1.0
+Pépinières agricoles,etab_adresse,336,728,0.4615
+Pépinières agricoles,etab_jour,726,728,0.9973
+Pépinières agricoles,etab_creation_date,700,728,0.9615
+Pépinières agricoles,terrain,714,728,0.9808
+Pépinières agricoles,geometry,728,728,1.0
+Pépinières agricoles,etab_creation_date (année plausible),697,728,0.9574
+Magasins d'intrants,region_nom_bdd,463,463,1.0
+Magasins d'intrants,prefecture_nom_bdd,463,463,1.0
+Magasins d'intrants,commune_nom_bdd,463,463,1.0
+Magasins d'intrants,canton_nom_bdd,463,463,1.0
+Magasins d'intrants,etab_nom,453,463,0.9784
+Magasins d'intrants,etab_adr,215,463,0.4644
+Magasins d'intrants,ouverture_jour,401,463,0.8661
+Magasins d'intrants,organisme,356,463,0.7689
+Magasins d'intrants,geometry,463,463,1.0

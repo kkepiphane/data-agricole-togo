@@ -1,0 +1,9 @@
+﻿jeu,type,fichier,lignes_brutes,sans_coordonnees,geometries_corrigees,doublons_exclus,lignes_retenues,geometrie,hors_prefecture_declaree
+Grandes exploitations,grande,file-Grandes exploitations agricoles - Établissements-01-10-2026 15_48_38.csv,220,0,0,0,220,Point,13
+Petites exploitations,petite,file-Petites exploitations agricoles-01-10-2026 15_49_56.csv,13119,0,769,3,13116,Polygone,645
+Plantations,plantation,file-Plantations agricoles - Établissements-01-10-2026 15_53_53.csv,2911,0,0,0,2911,Point,142
+ZAAP / ZAPB (champs individuels),zaap,file-ZAAPs et ZAPBs - Champs individuels-01-10-2026 15_55_25.csv,1883,0,135,20,1863,Polygone,113
+Coopératives agricoles,cooperative,file-Coopératives - Agricoles-01-10-2026 15_56_25.csv,6859,0,0,0,6859,Point,281
+Marchés,marche,file-Marchés-01-10-2026 16_00_02.csv,1078,0,33,0,1078,Polygone,36
+Pépinières agricoles,pepiniere,file-Pépinières agricoles-01-10-2026 16_00_42.csv,728,0,0,0,728,Point,72
+Magasins d'intrants,intrant,file-Magasins d'intrants agricoles - Établissements-01-10-2026 16_31_55.csv,463,0,0,0,463,Point,9

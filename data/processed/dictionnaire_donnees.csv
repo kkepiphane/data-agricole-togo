@@ -1,0 +1,26 @@
+﻿table,variable,type,nature,description
+entites.csv,id,texte,calculée,Identifiant unique attribué au nettoyage (préfixe = type).
+entites.csv,fid_source,texte,observée,Identifiant FID du fichier source.
+entites.csv,couche,catégorie,calculée,"exploitation, zaap, cooperative, marche, pepiniere, intrant."
+entites.csv,type,catégorie,calculée,"grande, petite, plantation, zaap, cooperative, marche, pepiniere, intrant."
+entites.csv,region,texte,observée,Région déclarée (region_nom_bdd).
+entites.csv,prefecture,texte,observée,Préfecture déclarée (prefecture_nom_bdd).
+entites.csv,commune,texte,observée,Commune déclarée (commune_nom_bdd).
+entites.csv,canton,texte,observée,Canton déclaré (canton_nom_bdd).
+entites.csv,canton_id,texte,calculée,Clé « préfecture|canton » (lève l'homonymie du canton Loko).
+entites.csv,localite,texte,observée,"Localité (nom_localite), casse harmonisée."
+entites.csv,nom,texte,observée,Nom de l'entité ; pour petites exploitations et ZAAP : coopérative de rattachement.
+entites.csv,annee,entier,observée,"Année de création déclarée (grandes exploitations, plantations, pépinières). Hors 1900-2026 → manquante."
+entites.csv,detail,texte,observée,"Attributs descriptifs normalisés (statut, type, foncier, jours de marché)."
+entites.csv,surface_ha,décimal,calculée,Surface du polygone en hectares (UTM 31N). Vide pour les points.
+entites.csv,lon / lat,décimal,calculée,Point représentatif de la géométrie (WGS84).
+entites.csv,geom_corrigee,booléen,calculée,"Géométrie source invalide, réparée (make_valid)."
+entites.csv,dans_prefecture_declaree,booléen,calculée,Le point tombe dans le polygone OCHA de la préfecture déclarée.
+prefectures.csv,prefecture / region,texte,observée,"39 préfectures, orthographe des données."
+prefectures.csv,superficie_km2,décimal,observée,Superficie OCHA COD-AB (Golfe = Golfe + Lomé Commune).
+cantons.csv,canton_id / canton,texte,observée,Cantons présents dans au moins un jeu de données.
+cantons.csv,lon / lat,décimal,calculée,Position médiane des enregistrements du canton (pas un centroïde officiel).
+exclusions.csv,motif,texte,calculée,"Raison de l'exclusion (doublon exact, géométrie absente, niveau administratif manquant)."
+qualite_completude.csv,taux,décimal,calculée,"Part des valeurs renseignées par variable (« Nsp », « Néant », vide = manquant)."
+qualite_jeux.csv,*,entier,calculée,"Par jeu : lignes brutes, retenues, doublons, géométries corrigées, incohérences spatiales."
+indicateurs_nationaux.csv,*,décimal,observée,"Indicateurs Banque mondiale (HDX), niveau national uniquement — non utilisés dans les cartes."
